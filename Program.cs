@@ -13,6 +13,7 @@ namespace AeroSpike_Test
     {
         static void Main(string[] args)
         {
+
             modelado();
             Record record = find(new Key("test","DDS-GLOBAL", "23232323"), new AerospikeClient("127.0.0.1", 3000));
 
