@@ -8,22 +8,20 @@ namespace AeroSpike_Test
 {
     class ddsConfig
     {
-        int id;
+        
         string nombre;
         string argumentosKey;
+        string criterios;
 
-        public ddsConfig(int id, string nombre, string argumentosKey)
+        public ddsConfig( string nombre, string argumentosKey, string criterios)
         {
-            //numerocuenta:pais::::::
-            this.id = id;
+            this.criterios = criterios;
+            
             this.nombre = nombre;
             this.argumentosKey = argumentosKey;
         }
 
-        public int getId()
-        {
-            return this.id;
-        }
+       
 
         public string getNombre()
         {
@@ -35,11 +33,13 @@ namespace AeroSpike_Test
             return this.argumentosKey;
         }
 
-        public void setId(int id)
+
+        public string getCriterios()
         {
-            this.id = id;
+            return this.criterios;
         }
 
+     
         public void setNombre(string nombre)
         {
             this.nombre = nombre;
@@ -48,6 +48,11 @@ namespace AeroSpike_Test
         public void setArgumentosKey(string argumentosKey)
         {
             this.argumentosKey = argumentosKey;
+        }
+
+        public void setCriterios (string criterios)
+        {
+            this.criterios = criterios;
         }
     }
 }

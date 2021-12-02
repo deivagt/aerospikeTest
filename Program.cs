@@ -42,20 +42,73 @@ namespace AeroSpike_Test
             List<ddsConfig> listaDDS = new List<ddsConfig>();
 
             //DDS a utilizar
-            ddsConfig newConfig = new ddsConfig(0, "DDS-GLOBAL", "numeroCuenta");
+            ddsConfig newConfig;
+            newConfig = new ddsConfig( "DDS-GLOBAL", "numeroCuenta", "");
             listaDDS.Add(newConfig);            
 
-            newConfig = new ddsConfig(1, "DDS-POS", "numeroCuenta");
+            newConfig = new ddsConfig( "DDS-POS", "numeroCuenta","canal=1");
             listaDDS.Add(newConfig);
 
-            newConfig = new ddsConfig(2, "DDS-ATM", "numeroCuenta");
+            newConfig = new ddsConfig( "DDS-ATM", "numeroCuenta", "canal=2");
             listaDDS.Add(newConfig);
 
-            newConfig = new ddsConfig(3, "DDS-ONLINE", "numeroCuenta");
+            newConfig = new ddsConfig( "DDS-ONLINE", "numeroCuenta", "canal=3");
             listaDDS.Add(newConfig);
 
-            newConfig = new ddsConfig(4, "DDS-ATM1", "numeroCuenta:pais");
+            newConfig = new ddsConfig( "DDS-POS-pais", "numeroCuenta:pais", "canal=1");
             listaDDS.Add(newConfig);
+
+            newConfig = new ddsConfig( "DDS-ATM-pais", "numeroCuenta:pais", "canal=2");
+            listaDDS.Add(newConfig);            
+
+            newConfig = new ddsConfig( "DDS-ONLINE-pais", "numeroCuenta:pais", "canal=3");
+            listaDDS.Add(newConfig);
+
+            newConfig = new ddsConfig( "DDS-SuperMarket", "numeroCuenta", "mcc=1");
+            listaDDS.Add(newConfig);
+
+            newConfig = new ddsConfig( "DDS-SuperMarket-pais", "numeroCuenta:pais", "mcc=1");
+            listaDDS.Add(newConfig);
+
+            newConfig = new ddsConfig( "DDS-Pharmacy", "numeroCuenta", "mcc=2");
+            listaDDS.Add(newConfig);
+
+            newConfig = new ddsConfig( "DDS-Gasoline", "numeroCuenta", "mcc=3");
+            listaDDS.Add(newConfig);
+
+            newConfig = new ddsConfig("DDS-Gasoline-pais", "numeroCuenta:pais", "mcc=3");
+            listaDDS.Add(newConfig);
+
+            newConfig = new ddsConfig("DDS-Restaurant", "numeroCuenta", "mcc=4");
+            listaDDS.Add(newConfig);
+
+            newConfig = new ddsConfig("DDS-Restaurant-pais", "numeroCuenta:pais", "mcc=4");
+            listaDDS.Add(newConfig);
+
+            newConfig = new ddsConfig("DDS-Hotel", "numeroCuenta", "mcc=5");
+            listaDDS.Add(newConfig);
+
+            newConfig = new ddsConfig("DDS-Hotel-pais", "numeroCuenta:pais", "mcc=5");
+            listaDDS.Add(newConfig);
+
+            newConfig = new ddsConfig("DDS-Hospital", "numeroCuenta", "mcc=6");
+            listaDDS.Add(newConfig);
+
+            newConfig = new ddsConfig("DDS-Services", "numeroCuenta", "mcc=7");
+            listaDDS.Add(newConfig);
+
+            newConfig = new ddsConfig("DDS-RentaCar", "numeroCuenta", "mcc=8");
+            listaDDS.Add(newConfig);
+
+            newConfig = new ddsConfig("DDS-TravelAgency", "numeroCuenta", "mcc=9");
+            listaDDS.Add(newConfig);
+
+            newConfig = new ddsConfig("DDS-FreeDuty", "numeroCuenta", "mcc=10");
+            listaDDS.Add(newConfig);
+
+            newConfig = new ddsConfig("DDS-FreeDuty-pais", "numeroCuenta:pais", "mcc=10");
+            listaDDS.Add(newConfig);
+
 
             //listaDDS.Add("DDS-POS");
             //listaDDS.Add("DDS-ATM");
@@ -149,7 +202,6 @@ namespace AeroSpike_Test
                     /*ALMACENAR DDS GLOBAL - EJECUCION NO DINAMICA------------------------------------------------------*/                   
 
                     int contador = 0;
-
                     while (contador < listaDDS.Count)
                     {                       
                         //incrementar para no enciclarnos va
@@ -208,13 +260,55 @@ namespace AeroSpike_Test
                             
                         }
 
-                        Console.WriteLine(stringKey);
+                        //Console.WriteLine(stringKey);
                         key = new Key("test", listaDDS[contador-1].getNombre(), stringKey);//key variable
 
+                        //verificar criterio
+                        bool criterio = true;
 
+                        //Paso 1: separar criterios por :
+                        string cadenaCriterios = listaDDS[contador - 1].getCriterios();
+                       
+                        var criterios = cadenaCriterios.Split(':');
+                       
+                        detener = false;
+                        if (!cadenaCriterios.Equals(""))
+                        {
+                            criterio = true;
+                            foreach (var crit in criterios)
+                            {
+                                //Paso 1.1: por cada criterio, separar bin y valor por =
+                                var partesCriterio = crit.Split('=');
+                                //Paso 1.2: obtener posicion del bin
 
+                                double pos = obtenerPosicion(listaNombresBines, partesCriterio[0]);
+                                if (pos == -1)
+                                {
+                                    detener = true;
+                                    break;
+                                }
+                                else
+                                {
+                                    //comparar valor de la entrada con valor de criterio
+                                    if (!values[(int)pos].Equals(partesCriterio[1]))
+                                    {
+                                        criterio = false;
+                                    }
+                                }
 
-                        if ((int.Parse(values[2].ToString()) == (contador-1)) || ((contador - 1) == 0)||(contador-1 >=4))//se escribe o no en dds/siempre en dds global/siempre resto de dds
+                            }
+                        }
+                       
+                        
+                        
+
+                        if (detener == true)
+                        {
+                            break;
+                        }
+
+                        //(int.Parse(values[2].ToString()) == (contador-1)) || ((contador - 1) == 0)||(contador-1 >=4)
+                        if (criterio == true)
                         {     
                             
                             //Encontrar bin para decidir si crear bines nuevos o obtener los anteriores
@@ -817,7 +911,7 @@ namespace AeroSpike_Test
                 }
                 i++;
             }
-            Console.WriteLine("bin no encontrado");
+            Console.WriteLine("bin no encontrado: " + busqueda);
 
             return -1;
         }

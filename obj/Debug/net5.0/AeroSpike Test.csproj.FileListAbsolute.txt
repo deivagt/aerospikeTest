@@ -1,0 +1,22 @@
+D:\Projects\AeroSpike Test\bin\Debug\net5.0\AeroSpike Test.exe
+D:\Projects\AeroSpike Test\bin\Debug\net5.0\AeroSpike Test.deps.json
+D:\Projects\AeroSpike Test\bin\Debug\net5.0\AeroSpike Test.runtimeconfig.json
+D:\Projects\AeroSpike Test\bin\Debug\net5.0\AeroSpike Test.runtimeconfig.dev.json
+D:\Projects\AeroSpike Test\bin\Debug\net5.0\AeroSpike Test.dll
+D:\Projects\AeroSpike Test\bin\Debug\net5.0\ref\AeroSpike Test.dll
+D:\Projects\AeroSpike Test\bin\Debug\net5.0\AeroSpike Test.pdb
+D:\Projects\AeroSpike Test\bin\Debug\net5.0\AerospikeClient.dll
+D:\Projects\AeroSpike Test\bin\Debug\net5.0\Iconic.Zlib.Netstandard.dll
+D:\Projects\AeroSpike Test\bin\Debug\net5.0\Neo.Lua.dll
+D:\Projects\AeroSpike Test\bin\Debug\net5.0\Newtonsoft.Json.dll
+D:\Projects\AeroSpike Test\bin\Debug\net5.0\de\Neo.Lua.resources.dll
+D:\Projects\AeroSpike Test\obj\Debug\net5.0\AeroSpike Test.csproj.AssemblyReference.cache
+D:\Projects\AeroSpike Test\obj\Debug\net5.0\AeroSpike Test.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\AeroSpike Test\obj\Debug\net5.0\AeroSpike Test.AssemblyInfoInputs.cache
+D:\Projects\AeroSpike Test\obj\Debug\net5.0\AeroSpike Test.AssemblyInfo.cs
+D:\Projects\AeroSpike Test\obj\Debug\net5.0\AeroSpike Test.csproj.CoreCompileInputs.cache
+D:\Projects\AeroSpike Test\obj\Debug\net5.0\AeroSpike Test.csproj.CopyComplete
+D:\Projects\AeroSpike Test\obj\Debug\net5.0\AeroSpike Test.dll
+D:\Projects\AeroSpike Test\obj\Debug\net5.0\ref\AeroSpike Test.dll
+D:\Projects\AeroSpike Test\obj\Debug\net5.0\AeroSpike Test.pdb
+D:\Projects\AeroSpike Test\obj\Debug\net5.0\AeroSpike Test.genruntimeconfig.cache
