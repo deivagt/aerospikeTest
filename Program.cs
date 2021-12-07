@@ -21,12 +21,14 @@ namespace AeroSpike_Test
         {
 
             modelado();
+
+            
                          
         }
 
         static void modelado()
         {
-            //Lista de DDS
+            //Iniciar lista de DDS
             listaDDS = new List<ddsConfig>();
 
             //DDS a utilizar
@@ -205,7 +207,7 @@ namespace AeroSpike_Test
             Console.WriteLine(resultado2);
         }
 
-        static Record find(Key key, AerospikeClient client)        {
+        static Record find(Key key, AerospikeClient client){
             
             Record record = client.Get(null, key);
             if (record != null)
