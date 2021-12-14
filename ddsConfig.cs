@@ -8,7 +8,7 @@ namespace AeroSpike_Test
 {
     class ddsConfig
     {
-        
+        //Esta clase contiene la informacion importante de cada DDS
         string nombre;
         string argumentosKey;
         string criterios;

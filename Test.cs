@@ -12,6 +12,7 @@ namespace AeroSpike_Test
 {
     class Test
     {
+        //Esta clase fue usada para empezar a entender aerospike, el codigo principal existe en la clase Program.cs
         static void ejemploModificacion()
         {
             AerospikeClient client = new AerospikeClient("127.0.0.1", 3000);
