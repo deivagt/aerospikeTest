@@ -8,6 +8,7 @@ namespace AeroSpike_Test
 {
     class usuario
     {
+        //Esta clase fue usada para fines de aprendizaje de aerospike
        public string nombre, apellido, ciudad;
         public int id;
         public usuario(int id, string nombre, string apellido, string ciudad)
