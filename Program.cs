@@ -131,7 +131,7 @@ namespace AeroSpike_Test
 
 
             //Datos de entrada
-            var reader = new StreamReader(File.OpenRead(@"trx.csv"));
+            var reader = new StreamReader(File.OpenRead(@"../../../trx.csv"));
 
             //String para guardar la transaccion en un string
             string trama = "";
@@ -1101,7 +1101,7 @@ namespace AeroSpike_Test
 
             }
             salida += "}}";
-
+            System.IO.Directory.CreateDirectory(System.AppContext.BaseDirectory + @"/log/");
             File.WriteAllText(System.AppContext.BaseDirectory + @"/log/" + titulo + @".json", salida);
         }
 
